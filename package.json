@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/CianciarusoCataldo/modular-plugin-router#readme",
   "peerDependencies": {
+    "history": "^4.10.1",
     "modular-utils": "^0.2.8",
     "redux-first-history": "^5.0.8"
   },
@@ -34,6 +35,7 @@
     "@types/node": "^16.11.17",
     "babel-jest": "^27.4.6",
     "enzyme": "^3.11.0",
+    "history": "^4.10.1",
     "jest": "^27.4.7",
     "jest-transform-stub": "^2.0.0",
     "modular-utils": "^0.2.8",
