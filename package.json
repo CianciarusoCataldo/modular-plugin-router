@@ -1,6 +1,6 @@
 {
   "name": "modular-plugin-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A routing system to control navigation with modular-engine system",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
