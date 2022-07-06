@@ -14,7 +14,7 @@ export type RouterPluginConfig = {
   isHomePage?: boolean;
 };
 
-export type RoutingPlugin = ModularEnginePlugin<{
+export type RouterPlugin = ModularEnginePlugin<{
   router?: Partial<RouterPluginConfig> & {
     initialRouteKey?: string;
     onLocationChange?: ((

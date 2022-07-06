@@ -9,3 +9,4 @@ export {
 } from "./plugin/selectors";
 export { locationChange, goBack, requestRoute } from "./plugin/actions";
 export { compareRoutes, extractHomePage } from "./plugin/helper";
+export { RouterPluginConfig, RouterPluginState } from "./plugin/types";

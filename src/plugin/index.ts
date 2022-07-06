@@ -3,7 +3,7 @@ import { ModularEngineConfig } from "modular-engine-types";
 import { createBrowserHistory } from "history";
 import { createReduxHistoryContext } from "redux-first-history";
 
-import { RoutingPlugin } from "./types";
+import { RouterPlugin } from "./types";
 
 import * as actions from "./actions";
 import { compareRoutes, extractHomePage } from "./helper";
@@ -14,34 +14,37 @@ const { createReduxHistory, routerMiddleware, routerReducer } =
     history: createBrowserHistory(),
   });
 
-const router: RoutingPlugin = () => ({
+const routerPlugin: RouterPlugin = () => ({
   feature: "router",
   create: (config) => {
-    let routerConfig = config.router || {};
-
-    routerConfig = {
-      routes: routerConfig.routes || {},
-      homePage: routerConfig.homePage || "",
-      basename: routerConfig.basename || "",
-      onLocationChange: routerConfig.onLocationChange || [],
-    };
-
-    const homeRoute = extractHomePage(routerConfig);
+    const routerConfig = config.router || {};
 
     const routes = routerConfig.routes || {};
+    const basename = routerConfig.basename || "";
+    const onLocationChange = routerConfig.onLocationChange || [];
+    const homePage = routerConfig.homePage || "";
+
+    const homeRoute = extractHomePage({
+      routes,
+      basename,
+      homePage,
+    });
 
     return {
       field: "router",
       content: {
-        ...routerConfig,
+        routes,
+        basename,
+        onLocationChange,
         homeRoute,
         initialRouteKey:
-          Object.keys(routes).find((key) =>
+          Object.keys(routes!).find((key) =>
             compareRoutes(
               window.location.pathname,
-              routerConfig.basename + routes[key]
+              basename + routes[key]
             )
-          ) || routerConfig.homePage,
+          ) ||
+          homePage,
       },
     };
   },
@@ -134,4 +137,4 @@ const router: RoutingPlugin = () => ({
   },
 });
 
-export default router;
+export default routerPlugin;
