@@ -21,7 +21,7 @@ import { RouterPluginConfig, RouterPluginState } from "./types";
  *
  */
 export const getRouterView = (
-  state: ModularEngineGlobalState
+  state: ModularEngineGlobalState<{ router?: RouterPluginState }>
 ): RouterPluginState => state.router || initialState;
 
 /**
