@@ -6,6 +6,7 @@
  * @copyright Cataldo Cianciaruso 2022
  */
 
+import { ModularEngineGlobalState } from "modular-engine-types";
 import { createModularSelector } from "modular-utils";
 
 import initialState from "./initial-state";
@@ -19,8 +20,9 @@ import { RouterPluginConfig, RouterPluginState } from "./types";
  * @copyright Cataldo Cianciaruso 2022
  *
  */
-export const getRouterView = (state): RouterPluginState =>
-  state.router || initialState;
+export const getRouterView = (
+  state: ModularEngineGlobalState
+): RouterPluginState => state.router || initialState;
 
 /**
  * Returns `router` config parameters
