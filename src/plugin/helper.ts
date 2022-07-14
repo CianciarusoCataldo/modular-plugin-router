@@ -1,5 +1,5 @@
 /**
- * @file router plugin helper functions
+ * @file [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) helper functions
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -9,9 +9,12 @@
 import { RouterPluginConfig } from "./types";
 
 /**
- * Determine the home page route from the `router` plugin parameters
+ * Determine the home page route from the [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) parameters
  *
  * @returns home page route
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -44,7 +47,11 @@ export const extractHomePage = ({
  *
  * @param path path to check
  *
- * @returns true if firsr route is equal to second, false otherwise
+ * @returns true if first route is equal to the second, false otherwise
+ *
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *

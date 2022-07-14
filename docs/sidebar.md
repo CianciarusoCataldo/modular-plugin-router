@@ -1,0 +1,10 @@
+- [Documentation](guide "Modular-plugin-router - documentation")
+- [Changelog](changelog "Modular-plugin-router - changelog")
+- **Links**
+- [Github](https://github.com/cianciarusocataldo/modular-plugin-router)
+- [NPM](https://www.npmjs.com/package/modular-plugin-router)
+- **Modular ecosystem**
+- [Modular-engine](https://github.com/cianciarusocataldo/modular-engine)
+- [Modular-ui-components](https://github.com/cianciarusocataldo/modular-ui-components)
+- [Modular-creator](https://github.com/cianciarusocataldo/modular-creator)
+- [Modular-plugins](https://github.com/cianciarusocataldo/modular-plugins)

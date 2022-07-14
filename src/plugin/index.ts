@@ -1,3 +1,14 @@
+/**
+ * @file [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) init file
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
+ *
+ * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
+ *
+ * @copyright Cataldo Cianciaruso 2022
+ */
+
 import { ModularEngineConfig } from "modular-engine-types";
 
 import { createBrowserHistory } from "history";
@@ -14,6 +25,38 @@ const { createReduxHistory, routerMiddleware, routerReducer } =
     history: createBrowserHistory(),
   });
 
+/**
+ * [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) create function.
+ * To use it inside [modular-engine system](), include into `plugins` array
+ *
+ * @returns [router]([modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) plugin
+ *
+ * @example <caption> Use router plugin inside modular-engine config </caption>
+ * const routerPlugin = require("modular-plugin-router");
+ *
+ * const config = {
+ *   appName: "custom-app",
+ *   plugins: [routerPlugin],
+ *   router: {
+ *     routes: {
+ *       Home: "/",
+ *       Custom: "/custom",
+ *     },
+ *     homePage: "Home",
+ *     basename: "/custom-basename",
+ *   },
+ * };
+ *
+ * module.exports = { config };
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
+ *
+ * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
+ *
+ * @copyright Cataldo Cianciaruso 2022
+ *
+ */
 const routerPlugin: RouterPlugin = () => ({
   feature: "router",
   create: (config) => {
@@ -39,12 +82,8 @@ const routerPlugin: RouterPlugin = () => ({
         homeRoute,
         initialRouteKey:
           Object.keys(routes!).find((key) =>
-            compareRoutes(
-              window.location.pathname,
-              basename + routes[key]
-            )
-          ) ||
-          homePage,
+            compareRoutes(window.location.pathname, basename + routes[key])
+          ) || homePage,
       },
     };
   },
@@ -64,12 +103,12 @@ const routerPlugin: RouterPlugin = () => ({
         const routes = routerConfig.routes;
 
         if (Object.values(routes).includes(urlParam)) {
-          store.dispatch(actions.requestRoute(basename + urlParam));
+          store.dispatch(actions.goTo(basename + urlParam));
         } else {
           if (Object.keys(routes).includes(String(urlParam))) {
-            store.dispatch(actions.requestRoute(basename + routes[urlParam]));
+            store.dispatch(actions.goTo(basename + routes[urlParam]));
           } else {
-            store.dispatch(actions.requestRoute(routerConfig.homeRoute));
+            store.dispatch(actions.goTo(routerConfig.homeRoute));
           }
         }
 

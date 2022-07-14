@@ -1,5 +1,8 @@
 /**
- * @file router plugin selectors, used to get router parameters directly from global state
+ * @file [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) selectors file
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -7,13 +10,16 @@
  */
 
 import { ModularEngineGlobalState } from "modular-engine-types";
-import { createModularSelector } from "modular-utils";
+import { createModularSelector } from "modular-engine-tools";
 
 import initialState from "./initial-state";
 import { RouterPluginConfig, RouterPluginState } from "./types";
 
 /**
- * Returns `router` plugin slice, or the default slice state if the plugin is not enabled
+ * Returns [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) state, or the default state if the plugin is not enabled
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -25,7 +31,10 @@ export const getRouterView = (
 ): RouterPluginState => state.router || initialState;
 
 /**
- * Returns `router` config parameters
+ * Returns [modular-plugin-router config parameters](https://cianciarusocataldo.github.io/modular-plugin-router?id=config)
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -45,7 +54,11 @@ export const getRouterPluginConfig = createModularSelector(
 );
 
 /**
- * Returns `router.homePage` parameter
+ * Returns [homePage parameter](https://cianciarusocataldo.github.io/modular-plugin-router?id=config)
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
+ *
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -58,7 +71,10 @@ export const getHomePage = createModularSelector(
 );
 
 /**
- * Returns `router.routes` parameter, with each route combined with basename
+ * Returns [routes parameter](https://cianciarusocataldo.github.io/modular-plugin-router?id=config), with each route combined with basename
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -79,7 +95,10 @@ export const getRoutes = createModularSelector(
 );
 
 /**
- * Returns `router.basename` parameter
+ * Returns [basename parameter](https://cianciarusocataldo.github.io/modular-plugin-router?id=config)
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -92,9 +111,10 @@ export const getAppBaseName = createModularSelector(
 );
 
 /**
- * Returns true if actual route is Home page route, false otherwise
+ * Returns true if actual route is [Home page route](https://cianciarusocataldo.github.io/modular-plugin-router?id=config), false otherwise
  *
- * @see https://github.com/CianciarusoCataldo/modular-engine/#ui
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *

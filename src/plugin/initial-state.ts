@@ -1,5 +1,8 @@
 /**
- * @file router plugin initial state file
+ * @file [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) initial state file
+ *
+ * @see https://cianciarusocataldo.github.io/modular-plugin-router
+ * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
@@ -9,7 +12,7 @@
 import { RouterPluginState } from "./types";
 
 /**
- * `router` plugin slice initial state
+ * [modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) initial state
  *
  * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
  *
