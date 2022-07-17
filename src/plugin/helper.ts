@@ -22,7 +22,6 @@ import { RouterPluginConfig } from "./types";
  *
  */
 export const extractHomePage = ({
-  basename,
   routes,
   homePage,
 }: Partial<RouterPluginConfig>) => {
@@ -39,7 +38,7 @@ export const extractHomePage = ({
     }
   }
 
-  return `${basename || ""}${route}`;
+  return route;
 };
 
 /**

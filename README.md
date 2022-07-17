@@ -57,7 +57,7 @@ For example, to add a custom query parameter:
 ```tsx
 // Inside your modular-engine config file
 
-const routerPlugin = require("modular-plugin-router");
+import { routerPlugin } from "modular-plugin-router";
 
 const config = {
   appName: "custom-app",
@@ -72,7 +72,7 @@ const config = {
   },
 };
 
-module.exports = { config };
+export default config;
 ```
 
 So the plugin will store 2 routes:
@@ -196,7 +196,6 @@ export const GoBackButton = () => {
 | `getRouterPluginConfig` | router plugin configuration                                 |
 | `getHomePage`           | home page route                                             |
 | `getRoutes`             | stored `routes`, with `basename` at the start of all routes |
-| `getAppBaseName`        | `basename` parameter                                        |
 | `isHomePage`            | `true` if actual route is home page, otherwise `false`      |
 
 <br>
@@ -205,7 +204,6 @@ Import them from this lib:
 
 ```tsx
 import {
-  getAppBaseName,
   getHomePage,
   getRouterPluginConfig,
   getRouterView,
@@ -217,14 +215,14 @@ import {
 Then you can use them, with selectors hooks, inside your components::
 
 ```tsx
-import { useSelector } from "react-i18next";
+import { useSelector } from "react-redux";
 import { getRouterConfig } from "modular-plugin-router";
 
 export const RouterDebugComponent = () => {
   const routerConfig = useSelector(getRouterConfig);
 
   return (
-    <div dark={darkMode}>
+    <div>
       <p>Router plugin configuration</p>
       {routerConfig}
     </div>

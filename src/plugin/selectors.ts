@@ -83,31 +83,7 @@ export const getHomePage = createModularSelector(
  */
 export const getRoutes = createModularSelector(
   getRouterPluginConfig,
-  ({ basename, routes }) => {
-    let computedRoutes = { ...routes };
-    Object.keys(routes).forEach((routeKey) => {
-      const initialRoute = computedRoutes[routeKey];
-      computedRoutes[routeKey] = `${basename}${initialRoute}`;
-    });
-
-    return computedRoutes;
-  }
-);
-
-/**
- * Returns [basename parameter](https://cianciarusocataldo.github.io/modular-plugin-router?id=config)
- *
- * @see https://cianciarusocataldo.github.io/modular-plugin-router?id=selectors
- * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
- *
- * @author Cataldo Cianciaruso <https://github.com/CianciarusoCataldo>
- *
- * @copyright Cataldo Cianciaruso 2022
- *
- */
-export const getAppBaseName = createModularSelector(
-  getRouterPluginConfig,
-  (router) => router.basename
+  ({ routes }) => routes
 );
 
 /**

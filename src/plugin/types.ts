@@ -80,5 +80,6 @@ export type RouterPlugin = ModularEnginePlugin<{
  * @copyright Cataldo Cianciaruso 2022
  */
 export type RouterPluginState = ModularEngineCustomState<
-  RouterState & Omit<RouterPluginConfig, "homePage">
+  RouterState &
+    Omit<RouterPluginConfig, "homePage" | "basename" | "onLocationChange">
 >;

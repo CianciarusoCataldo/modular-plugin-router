@@ -28,10 +28,8 @@ const routerInitialState: RouterPluginState = {
   },
   action: null,
   isHomePage: false,
-  homePage: "",
   homeRoute: "",
   routes: {},
-  basename: "",
   routeKey: "",
 };
 

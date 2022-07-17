@@ -1,6 +1,5 @@
 export { default as routerPlugin } from "./plugin";
 export {
-  getAppBaseName,
   getHomePage,
   getRouterPluginConfig,
   getRouterView,

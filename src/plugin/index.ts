@@ -10,7 +10,6 @@
  */
 
 import { ModularEngineConfig } from "modular-engine-types";
-
 import { createBrowserHistory } from "history";
 import { createReduxHistoryContext } from "redux-first-history";
 
@@ -32,7 +31,7 @@ const { createReduxHistory, routerMiddleware, routerReducer } =
  * @returns [router]([modular-plugin-router](https://github.com/CianciarusoCataldo/modular-plugin-router) plugin
  *
  * @example <caption> Use router plugin inside modular-engine config </caption>
- * const routerPlugin = require("modular-plugin-router");
+ * import { routerPlugin } from "modular-plugin-router"
  *
  * const config = {
  *   appName: "custom-app",
@@ -47,7 +46,7 @@ const { createReduxHistory, routerMiddleware, routerReducer } =
  *   },
  * };
  *
- * module.exports = { config };
+ * export default config;
  *
  * @see https://cianciarusocataldo.github.io/modular-plugin-router
  * @see https://cianciarusocataldo.github.io/modular-plugin-engine/docs
@@ -62,14 +61,18 @@ const routerPlugin: RouterPlugin = () => ({
   create: (config) => {
     const routerConfig = config.router || {};
 
-    const routes = routerConfig.routes || {};
+    let routes = routerConfig.routes || {};
+
     const basename = routerConfig.basename || "";
-    const onLocationChange = routerConfig.onLocationChange || [];
+
     const homePage = routerConfig.homePage || "";
+
+    Object.keys(routes).forEach((routeKey) => {
+      routes[routeKey] = basename + routes[routeKey];
+    });
 
     const homeRoute = extractHomePage({
       routes,
-      basename,
       homePage,
     });
 
@@ -77,8 +80,7 @@ const routerPlugin: RouterPlugin = () => ({
       field: "router",
       content: {
         routes,
-        basename,
-        onLocationChange,
+        onLocationChange: routerConfig.onLocationChange || [],
         homeRoute,
         initialRouteKey:
           Object.keys(routes!).find((key) =>
